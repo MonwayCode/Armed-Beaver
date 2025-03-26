@@ -5,10 +5,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function NavScroll() 
-{
+function NavScroll() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="custom-navbar">
       <Container fluid>
         <Navbar.Brand href="/">Armed Beaver</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -21,16 +20,16 @@ function NavScroll()
             <Nav.Link href="/">Strona Główna</Nav.Link>
             <NavDropdown title="Kraj" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/USA">USA</NavDropdown.Item>
-              <NavDropdown.Divider/>
+              <NavDropdown.Divider />
 
               <NavDropdown.Item href="/Niemcy">Niemcy</NavDropdown.Item>
-              <NavDropdown.Divider/>
+              <NavDropdown.Divider />
 
               <NavDropdown.Item href="/ZSRR">ZSRR/Rosja</NavDropdown.Item>
-              <NavDropdown.Divider/>
+              <NavDropdown.Divider />
 
               <NavDropdown.Item href='/UK'>Wielka Brytania</NavDropdown.Item>
-              <NavDropdown.Divider/>
+              <NavDropdown.Divider />
 
               <NavDropdown.Item href='/Chiny'>Chiny</NavDropdown.Item>
 
@@ -38,16 +37,16 @@ function NavScroll()
 
             <NavDropdown title="Typ" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/lekkie">Czołgi Lekkie</NavDropdown.Item>
-              <NavDropdown.Divider/>
+              <NavDropdown.Divider />
 
               <NavDropdown.Item href="/srednie">Czołgi Średnie</NavDropdown.Item>
-              <NavDropdown.Divider/>
+              <NavDropdown.Divider />
 
               <NavDropdown.Item href="/ciezkie">Czołgi Ciężkie</NavDropdown.Item>
-              <NavDropdown.Divider/>
+              <NavDropdown.Divider />
 
               <NavDropdown.Item href='/nieszczyciele'>Nieszczyciele Czołgów</NavDropdown.Item>
-              <NavDropdown.Divider/>
+              <NavDropdown.Divider />
 
               <NavDropdown.Item href='/przeciwlotnicze'>Maszyny Przeciwlotnicze</NavDropdown.Item>
 

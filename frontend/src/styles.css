@@ -1,0 +1,138 @@
+.custom-navbar {
+    background-color: #2f4858 !important; 
+  }
+  
+  .custom-navbar .navbar-brand,
+  .custom-navbar .nav-link {
+    color: white !important; 
+  }
+  
+  .custom-navbar .nav-link:hover,
+  .custom-navbar .navbar-brand:hover {
+    color: #208564 !important;  
+  }
+  
+
+
+.country-panel, .tank-type-panel {
+    position: relative;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.country-panel {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.2rem; 
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.country-panel:hover {
+    transform: scale(1.05); 
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.country-panel h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hover-gif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+}
+
+.country-panel:hover .hover-gif {
+    opacity: 1; 
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, visibility 0s 0s;
+}
+
+.tank-type-panel {
+    background: linear-gradient(145deg, #a1a1a1, #787878); 
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1rem; 
+    font-weight: bold;
+    color: white;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 15px;
+}
+
+.tank-type-panel:hover {
+    background: linear-gradient(145deg, #4d4d4d, #333333); 
+    transform: translateY(-5px); 
+}
+
+.App {
+    font-family: 'Roboto', sans-serif;
+}
+
+.section-header {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: #fff;
+    padding: 50px 0;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-top: 20px;
+}
+
+.container {
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .country-panel, .tank-type-panel {
+        height: 150px; 
+    }
+
+    .country-panel h5, .tank-type-panel h5 {
+        font-size: 1rem; 
+    }
+
+    .section-header {
+        font-size: 1.5rem;
+    }
+}
