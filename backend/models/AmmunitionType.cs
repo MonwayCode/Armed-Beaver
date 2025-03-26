@@ -7,5 +7,7 @@ public class AmmunitionType
     public int? Caliber { get; set; }
     public decimal? ProjectileMass { get; set; }
     public decimal? MuzzleVelocity { get; set; }
-    public GunSpecification? Gun { get; set; }
+    public decimal? ExplosiveMassTNT { get; set; }
+    public List<GunAmmunition>? GunAmmunitions { get; set; }
+     public ArmorPenetration? ArmorPenetration { get; set; }
 }

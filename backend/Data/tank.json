@@ -1,0 +1,126 @@
+{
+    "Tanks": [
+      {
+        "TankId": 1,
+        "Name": "IS-2",
+        "Country": "ZSRR",
+        "Description": "IS-2 to druga wersja czołgu ciężkiego z rodziny IS, wprowadzona w odpowiedzi na niemieckie Pantery i Tygrysy I. Posiada pochylony pancerz przedni oraz potężne działo D-25T kalibru 122 mm, choć jego przeładowanie było trudne ze względu na ciężką, dwuczęściową amunicję. Konstrukcja kadłuba zapewniała lepszą ochronę, umożliwiając wytrzymanie trafień pociskami kalibru 88 mm z 1000 m. Ograniczona przestrzeń wieży zmuszała do zastosowania czteroosobowej załogi. Produkcja ruszyła w lutym 1944 roku, a do końca roku dostarczono 2252 egzemplarze.",
+        "TankType": "Heavy",
+        "Model3DPath": "is-2_war_thunder.glb",
+        "JpgPath": "Is-2.png",
+        "Specifications": {
+            "SpecificationId": 1,
+            "TankId": 1,
+            "GunId": 1,
+            "CrewCount": 4,
+            "MaxForwardSpeed": 37,
+            "MaxBackwardSpeed": 14,
+            "PowerToWeightRatio": 11.3,
+            "EnginePower": 520,
+            "Weight": 46,
+            "Armor": {
+                "ArmorId": 1,
+                "SpecificationId": 1,
+                "HullFront": 120,
+                "HullSide": 90,
+                "HullRear": 60,
+                "TurretFront": 100,
+                "TurretSide": 100,
+                "TurretRear": 100
+            },
+            "Gun": {
+                "GunId": 1,
+                "SpecificationId": 1,
+                "GunName": "D-25T",
+                "Caliber": 122,
+                "AmmunitionCount": 28,
+                "ReloadTime": 24,
+                "TurretRotationSpeed": 12,
+                "VerticalGuidance": {
+                    "VGId": 1,
+                    "Max": 20.0,
+                    "Min": -3.0,
+                    "GunId": 1
+                },
+                "GunAmmunitions": [
+                {
+                    "GunId": 1,
+                    "AmmunitionId": 1
+                },
+                {
+                    "GunId": 1,
+                    "AmmunitionId": 2
+                },
+                {
+                    "GunId": 1,
+                    "AmmunitionId": 3
+                }
+                ]
+            }
+        }
+      }
+    ],
+    "AmmunitionTypes": [
+      {
+        "AmmunitionId": 1,
+        "GunId": 1,
+        "AmmunitionName": "BR-471",
+        "AmmunitionTypeName": "APHE",
+        "Caliber": 122,
+        "ProjectileMass": 25.0,
+        "MuzzleVelocity": 795.0,
+        "ExplosiveMassTNT": 0.16,
+        "ArmorPenetration": {
+            "PenetrationId": 1,
+            "AmmunitionId": 1,
+            "m100_0S": 201.0,
+            "m100_30s": 156.0,
+            "m100_60s": 79.0,
+            "m1000_0s": 161.0,
+            "m1000_30s": 131.0,
+            "m1000_60s": 65.0
+        }
+      },
+      {
+        "AmmunitionId": 2,
+        "GunId": 1,
+        "AmmunitionName": "BR-471B",
+        "AmmunitionTypeName": "APHEBC",
+        "Caliber": 122,
+        "ProjectileMass": 25.0,
+        "MuzzleVelocity": 795.0,
+        "ExplosiveMassTNT": 0.16,
+        "ArmorPenetration": {
+            "PenetrationId": 2,
+            "AmmunitionId": 2,
+            "m100_0S": 203.0,
+            "m100_30s": 171.0,
+            "m100_60s": 85.0,
+            "m1000_0s": 178.0,
+            "m1000_30s": 152.0,
+            "m1000_60s": 80.0
+        }
+      },
+      {
+        "AmmunitionId": 3,
+        "GunId": 1,
+        "AmmunitionName": "OF-471",
+        "AmmunitionTypeName": "HE",
+        "Caliber": 122,
+        "ProjectileMass": 25.0,
+        "MuzzleVelocity": 795.0,
+        "ExplosiveMassTNT": 3.6,
+        "ArmorPenetration": {
+            "PenetrationId": 3,
+            "AmmunitionId": 3,
+            "m100_0S": 37.0,
+            "m100_30s": 37.0,
+            "m100_60s": 37.0,
+            "m1000_0s": 37.0,
+            "m1000_30s": 37.0,
+            "m1000_60s": 37.0
+        }
+      }
+    ]
+  }
+  

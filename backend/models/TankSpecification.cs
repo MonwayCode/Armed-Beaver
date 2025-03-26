@@ -3,6 +3,7 @@ public class TankSpecification
 {
     public int SpecificationId { get; set; }
     public int TankId { get; set; }
+    public int GunId { get; set; }
     public int CrewCount { get; set; }
     public decimal MaxForwardSpeed { get; set; }
     public decimal MaxBackwardSpeed { get; set; }

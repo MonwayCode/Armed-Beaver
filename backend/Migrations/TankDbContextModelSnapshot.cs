@@ -27,14 +27,59 @@ namespace backend.Migrations
                     b.Property<string>("AmmunitionTypeName")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("Caliber")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal?>("ExplosiveMassTNT")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("GunId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<decimal?>("MuzzleVelocity")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal?>("ProjectileMass")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("AmmunitionId");
 
-                    b.HasIndex("GunId");
-
                     b.ToTable("AmmunitionTypes", (string)null);
+                });
+
+            modelBuilder.Entity("ArmorPenetration", b =>
+                {
+                    b.Property<int>("PenetrationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AmmunitionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal?>("m1000_0s")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal?>("m1000_30s")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal?>("m1000_60s")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal?>("m100_0S")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal?>("m100_30s")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal?>("m100_60s")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PenetrationId");
+
+                    b.HasIndex("AmmunitionId")
+                        .IsUnique();
+
+                    b.ToTable("ArmorPenetrations", (string)null);
                 });
 
             modelBuilder.Entity("ArmorSpecification", b =>
@@ -72,6 +117,21 @@ namespace backend.Migrations
                     b.ToTable("ArmorSpecifications", (string)null);
                 });
 
+            modelBuilder.Entity("GunAmmunition", b =>
+                {
+                    b.Property<int>("GunId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AmmunitionId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("GunId", "AmmunitionId");
+
+                    b.HasIndex("AmmunitionId");
+
+                    b.ToTable("GunAmmunition");
+                });
+
             modelBuilder.Entity("GunSpecification", b =>
                 {
                     b.Property<int>("GunId")
@@ -82,12 +142,6 @@ namespace backend.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Caliber")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Depression")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("ElevationSpeed")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("GunName")
@@ -104,10 +158,21 @@ namespace backend.Migrations
 
                     b.HasKey("GunId");
 
-                    b.HasIndex("SpecificationId")
-                        .IsUnique();
-
                     b.ToTable("GunSpecifications", (string)null);
+                });
+
+            modelBuilder.Entity("Informations", b =>
+                {
+                    b.Property<int>("InformationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("funfact")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("InformationId");
+
+                    b.ToTable("Informations", (string)null);
                 });
 
             modelBuilder.Entity("Tank", b =>
@@ -122,10 +187,16 @@ namespace backend.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("JpgPath")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Model3DPath")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TankType")
                         .HasColumnType("TEXT");
 
                     b.HasKey("TankId");
@@ -145,6 +216,9 @@ namespace backend.Migrations
                     b.Property<decimal>("EnginePower")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("GunId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<decimal>("MaxBackwardSpeed")
                         .HasColumnType("TEXT");
 
@@ -162,21 +236,46 @@ namespace backend.Migrations
 
                     b.HasKey("SpecificationId");
 
+                    b.HasIndex("GunId");
+
                     b.HasIndex("TankId")
                         .IsUnique();
 
                     b.ToTable("TankSpecifications", (string)null);
                 });
 
-            modelBuilder.Entity("AmmunitionType", b =>
+            modelBuilder.Entity("VerticalGuidance", b =>
                 {
-                    b.HasOne("GunSpecification", "Gun")
-                        .WithMany("AmmunitionTypes")
-                        .HasForeignKey("GunId")
+                    b.Property<int>("VGId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("GunId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal?>("Max")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal?>("Min")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("VGId");
+
+                    b.HasIndex("GunId")
+                        .IsUnique();
+
+                    b.ToTable("VerticalGuidances", (string)null);
+                });
+
+            modelBuilder.Entity("ArmorPenetration", b =>
+                {
+                    b.HasOne("AmmunitionType", "Ammunition")
+                        .WithOne("ArmorPenetration")
+                        .HasForeignKey("ArmorPenetration", "AmmunitionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Gun");
+                    b.Navigation("Ammunition");
                 });
 
             modelBuilder.Entity("ArmorSpecification", b =>
@@ -190,31 +289,69 @@ namespace backend.Migrations
                     b.Navigation("Specifications");
                 });
 
-            modelBuilder.Entity("GunSpecification", b =>
+            modelBuilder.Entity("GunAmmunition", b =>
                 {
-                    b.HasOne("TankSpecification", "Specifications")
-                        .WithOne("Gun")
-                        .HasForeignKey("GunSpecification", "SpecificationId")
+                    b.HasOne("AmmunitionType", "Ammunition")
+                        .WithMany("GunAmmunitions")
+                        .HasForeignKey("AmmunitionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Specifications");
+                    b.HasOne("GunSpecification", "Gun")
+                        .WithMany("GunAmmunitions")
+                        .HasForeignKey("GunId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ammunition");
+
+                    b.Navigation("Gun");
                 });
 
             modelBuilder.Entity("TankSpecification", b =>
                 {
+                    b.HasOne("GunSpecification", "Gun")
+                        .WithMany("Specifications")
+                        .HasForeignKey("GunId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Tank", "Tank")
                         .WithOne("Specifications")
                         .HasForeignKey("TankSpecification", "TankId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Gun");
+
                     b.Navigation("Tank");
+                });
+
+            modelBuilder.Entity("VerticalGuidance", b =>
+                {
+                    b.HasOne("GunSpecification", "Gun")
+                        .WithOne("VerticalGuidance")
+                        .HasForeignKey("VerticalGuidance", "GunId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Gun");
+                });
+
+            modelBuilder.Entity("AmmunitionType", b =>
+                {
+                    b.Navigation("ArmorPenetration");
+
+                    b.Navigation("GunAmmunitions");
                 });
 
             modelBuilder.Entity("GunSpecification", b =>
                 {
-                    b.Navigation("AmmunitionTypes");
+                    b.Navigation("GunAmmunitions");
+
+                    b.Navigation("Specifications");
+
+                    b.Navigation("VerticalGuidance");
                 });
 
             modelBuilder.Entity("Tank", b =>
@@ -225,8 +362,6 @@ namespace backend.Migrations
             modelBuilder.Entity("TankSpecification", b =>
                 {
                     b.Navigation("Armor");
-
-                    b.Navigation("Gun");
                 });
 #pragma warning restore 612, 618
         }
