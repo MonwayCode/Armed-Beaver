@@ -38,7 +38,7 @@ const TankTypePanel = ({ type }: { type: string }) => (
 
 const App: React.FC = () => {
     return (
-        <div className="App" style={{ backgroundColor: "#284c45" }}>
+        <div className="App" style={{ backgroundColor: "#1d3b35" }}>
             <NavScroll />
             <div className="container py-4" style={{ backgroundColor: "#686868", fontFamily: "Arial, sans-serif" }}>
                 

@@ -1,0 +1,45 @@
+body {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: "Oswald", sans-serif;
+}
+
+.tank-card {
+  background: #262626;
+  border: 1px solid #444;
+  border-radius: 12px;
+}
+
+.tank-image {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid #b8860b;
+}
+
+.info-box {
+  background: #333;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.info-title {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.info-value {
+  font-size: 1.1rem;
+}
+
+
+
+.table-dark td {
+  transition: background 0.3s ease-in-out;
+}
+.table-dark tr:hover td {
+  background: rgba(255, 215, 0, 0.2);
+}

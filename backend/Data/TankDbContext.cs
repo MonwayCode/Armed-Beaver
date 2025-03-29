@@ -17,11 +17,11 @@ public class TankDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Tank>()
-            .ToTable("Tanks")
+            .ToTable("Tank")
             .HasKey(t => t.TankId);
 
         modelBuilder.Entity<TankSpecification>()
-            .ToTable("TankSpecifications")
+            .ToTable("TankSpecification")
             .HasKey(ts => ts.SpecificationId);
             
         modelBuilder.Entity<TankSpecification>()
@@ -30,11 +30,11 @@ public class TankDbContext : DbContext
             .HasForeignKey<TankSpecification>(ts => ts.TankId);
 
         modelBuilder.Entity<ArmorSpecification>()
-            .ToTable("ArmorSpecifications")
+            .ToTable("ArmorSpecification")
             .HasKey(ar => ar.ArmorId);
 
         modelBuilder.Entity<GunSpecification>()
-            .ToTable("GunSpecifications")
+            .ToTable("GunSpecification")
             .HasKey(g => g.GunId);        
 
         modelBuilder.Entity<TankSpecification>()
@@ -48,7 +48,7 @@ public class TankDbContext : DbContext
             .HasForeignKey(ts => ts.GunId);
 
         modelBuilder.Entity<AmmunitionType>()
-            .ToTable("AmmunitionTypes")
+            .ToTable("AmmunitionType")
             .HasKey(a => a.AmmunitionId);
 
         modelBuilder.Entity<GunAmmunition>()
@@ -65,7 +65,7 @@ public class TankDbContext : DbContext
             .HasForeignKey(ga => ga.AmmunitionId);
 
         modelBuilder.Entity<VerticalGuidance>()
-            .ToTable("VerticalGuidances")
+            .ToTable("VerticalGuidance")
             .HasKey(vg => vg.VGId); 
 
         modelBuilder.Entity<GunSpecification>()
@@ -74,7 +74,7 @@ public class TankDbContext : DbContext
             .HasForeignKey<VerticalGuidance>(vg => vg.GunId);  
 
         modelBuilder.Entity<ArmorPenetration>()
-            .ToTable("ArmorPenetrations")
+            .ToTable("ArmorPenetration")
             .HasKey(ap => ap.PenetrationId);  
 
         modelBuilder.Entity<AmmunitionType>()
