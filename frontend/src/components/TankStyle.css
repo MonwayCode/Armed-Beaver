@@ -43,3 +43,12 @@ body {
 .table-dark tr:hover td {
   background: rgba(255, 215, 0, 0.2);
 }
+
+.ammunition-card h5 {
+  transition: color 0.3s;
+}
+
+.ammunition-card h5:hover {
+  color: #ffc107;
+}
+

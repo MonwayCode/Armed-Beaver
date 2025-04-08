@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 
 public class TankSpecification
 {
@@ -10,7 +11,10 @@ public class TankSpecification
     public decimal PowerToWeightRatio { get; set; }
     public decimal EnginePower { get; set; }
     public decimal Weight { get; set; }
-    public Tank? Tank { get; set; }
+
     public ArmorSpecification? Armor { get; set; }
-    public GunSpecification? Gun {get; set;}
+    public GunSpecification? Gun { get; set; }
+
+    [JsonIgnore]
+    public Tank? Tank { get; set; }
 }

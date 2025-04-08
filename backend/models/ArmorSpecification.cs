@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 public class ArmorSpecification
 {
     public int ArmorId { get; set; }
@@ -9,5 +11,6 @@ public class ArmorSpecification
     public decimal TurretSide { get; set; }
     public decimal TurretRear { get; set; }
 
+    [JsonIgnore]
     public TankSpecification? Specifications { get; set; }
 }
