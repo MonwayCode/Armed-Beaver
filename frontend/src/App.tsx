@@ -1,14 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavScroll from './components/NavSroll';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 
 const countries = [
-    { id: 1, name: "USA", image: "./images/USA.jpg", gif: "./images/USA.gif" },
-    { id: 2, name: "Niemcy", image: "./images/germany.png", gif: "./images/germany.gif" },
-    { id: 3, name: "ZSRR/Rosja", image: "./images/zsrr.png", gif: "./images/rosja.gif" },
-    { id: 4, name: "Wielka Brytania", image: "./images/uk.png", gif: "./images/uk.gif" },
-    { id: 5, name: "Chiny", image: "./images/chiny.png", gif:"./images/chiny.gif" }
+    { id: 1, name: "USA", image: "./images/USA.jpg", gif: "./images/USA.gif", path: "usa" },
+    { id: 2, name: "Niemcy", image: "./images/germany.png", gif: "./images/germany.gif", path: "niemcy" },
+    { id: 3, name: "ZSRR/Rosja", image: "./images/zsrr.png", gif: "./images/rosja.gif", path: "zsrr" },
+    { id: 4, name: "Wielka Brytania", image: "./images/uk.png", gif: "./images/uk.gif", path: "wielka-brytania" },
+    { id: 5, name: "Chiny", image: "./images/chiny.png", gif:"./images/chiny.gif", path: "chiny" }
 ];
 
 const tankTypes = [
@@ -19,14 +20,27 @@ const tankTypes = [
     "Samobieżne zestawy przeciwlotnicze"
 ];
 
-const CountryPanel = ({ country }: { country: typeof countries[0] }) => (
-    <div key={country.id} className="col-md-3 mb-2">  
-        <div className="country-panel p-3 shadow rounded" style={{ backgroundImage: `url(${country.image})`, backgroundSize: "cover", borderRadius: "10px" }}>
-            <img src={country.gif} alt={country.name} className="hover-gif rounded" />
-            <h5 className="text-white text-center mt-2">{country.name}</h5>
+const CountryPanel = ({ country }: { country: typeof countries[0] }) => {
+    const navigate = useNavigate();
+    
+    return (
+        <div key={country.id} className="col-md-3 mb-2">  
+            <div 
+                className="country-panel p-3 shadow rounded" 
+                style={{ 
+                    backgroundImage: `url(${country.image})`, 
+                    backgroundSize: "cover", 
+                    borderRadius: "10px",
+                    cursor: "pointer"
+                }}
+                onClick={() => navigate(`/${country.path}`)}
+            >
+                <img src={country.gif} alt={country.name} className="hover-gif rounded" />
+                <h5 className="text-white text-center mt-2">{country.name}</h5>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 const TankTypePanel = ({ type }: { type: string }) => (
     <div className="col-md-3 ">  

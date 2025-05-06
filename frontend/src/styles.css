@@ -64,6 +64,11 @@
     transition: opacity 0.3s ease-in-out, visibility 0s 0s;
 }
 
+.tank-panel:hover {
+    transform: scale(1.05); 
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
 .tank-type-panel {
     background: linear-gradient(145deg, #a1a1a1, #787878); 
     padding: 20px;

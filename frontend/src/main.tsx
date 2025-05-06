@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import App from './App';
 import TankDetails from './components/TankDetals';
+import Country from './components/Country';
 
 const root = createRoot(document.getElementById('root')!);
 
@@ -14,6 +15,7 @@ root.render(
       <Routes> 
         <Route path="/" element={<App />} />
         <Route path="/tank/:id" element={<TankDetails />} />
+        <Route path="/:country" element={<Country/>} />
       </Routes>
     </Router>
   </StrictMode>
