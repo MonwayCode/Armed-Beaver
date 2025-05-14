@@ -19,38 +19,29 @@ function NavScroll() {
           >
             <Nav.Link href="/">Strona Główna</Nav.Link>
             <NavDropdown title="Kraj" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/USA">USA</NavDropdown.Item>
+              <NavDropdown.Item href="/country/usa">USA</NavDropdown.Item>
               <NavDropdown.Divider />
-
-              <NavDropdown.Item href="/Niemcy">Niemcy</NavDropdown.Item>
+              <NavDropdown.Item href="/country/germany">Niemcy</NavDropdown.Item>
               <NavDropdown.Divider />
-
-              <NavDropdown.Item href="/ZSRR">ZSRR/Rosja</NavDropdown.Item>
+              <NavDropdown.Item href="/country/zsrr">ZSRR/Rosja</NavDropdown.Item>
               <NavDropdown.Divider />
-
-              <NavDropdown.Item href='/UK'>Wielka Brytania</NavDropdown.Item>
+              <NavDropdown.Item href='/country/uk'>Wielka Brytania</NavDropdown.Item>
               <NavDropdown.Divider />
-
-              <NavDropdown.Item href='/Chiny'>Chiny</NavDropdown.Item>
-
+              <NavDropdown.Item href='/country/china'>Chiny</NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title="Typ" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/lekkie">Czołgi Lekkie</NavDropdown.Item>
+              <NavDropdown.Item href="/type/light">Czołgi Lekkie</NavDropdown.Item>
               <NavDropdown.Divider />
-
-              <NavDropdown.Item href="/srednie">Czołgi Średnie</NavDropdown.Item>
+              <NavDropdown.Item href="/type/medium">Czołgi Średnie</NavDropdown.Item>
               <NavDropdown.Divider />
-
-              <NavDropdown.Item href="/ciezkie">Czołgi Ciężkie</NavDropdown.Item>
+              <NavDropdown.Item href="/type/heavy">Czołgi Ciężkie</NavDropdown.Item>
               <NavDropdown.Divider />
-
-              <NavDropdown.Item href='/nieszczyciele'>Nieszczyciele Czołgów</NavDropdown.Item>
+              <NavDropdown.Item href='/type/tk'>Niszczyciele Czołgów</NavDropdown.Item>
               <NavDropdown.Divider />
-
-              <NavDropdown.Item href='/przeciwlotnicze'>Maszyny Przeciwlotnicze</NavDropdown.Item>
-
+              <NavDropdown.Item href='/type/aa'>Maszyny Przeciwlotnicze</NavDropdown.Item>
             </NavDropdown>
+            
             <Nav.Link href="/amunicja">Amunicja</Nav.Link>
             <Nav.Link href="/porownywarka">Porównywarka</Nav.Link>
 

@@ -18,22 +18,12 @@ const Country: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const countryMapping: Record<string, string> = {
-    "usa": "USA",
-    "niemcy": "NIEMCY",
-    "zsrr": "ZSRR",
-    "rosja": "ROSJA",
-    "wielka-brytania": "WIELKA BRYTANIA",
-    "chiny": "CHINY"
-  };
-
   const displayNames: Record<string, string> = {
     "usa": "USA",
-    "niemcy": "Niemcy",
+    "germany": "Niemcy",
     "zsrr": "ZSRR",
-    "rosja": "Rosja",
-    "wielka-brytania": "Wielka Brytania",
-    "chiny": "Chiny"
+    "uk": "Wielka Brytania",
+    "china": "Chiny"
   };
 
   useEffect(() => {
@@ -46,7 +36,7 @@ const Country: React.FC = () => {
         setLoading(true);
         setError(null);
 
-        const response = await axios.get(`http://localhost:5114/${encodeURIComponent(country.toLowerCase())}`);
+        const response = await axios.get(`http://localhost:5114/country/${encodeURIComponent(country.toLowerCase())}`);
         let data = response.data;
 
         if (data && data.$values && Array.isArray(data.$values)) {

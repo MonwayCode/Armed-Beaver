@@ -11,11 +11,8 @@ import BabylonViewer from "./model3d";
 interface Tank {
   name: string;
   country: string;
-  rank: string;
-  battleRating: string;
+  description: string;
   tankType: string;
-  researchCost: string;
-  purchaseCost: string;
   model3DPath: string;
   jpgPath: string;
   specifications?: TankSpecification;
@@ -101,6 +98,21 @@ const getTankTypeTranslation = (type: string) => {
   }
 };
 
+const getTankCountry = (type: string) => {
+  switch (type.toLowerCase()) {
+    case 'germany':
+      return ' Niemcy';
+    case 'uk':
+      return ' Wielka Brytania';
+    case 'usa':
+      return ' Stany Zjednoczone';
+    case 'china':
+      return ' Chiny';
+    default:
+      return type;
+  }
+};
+
 const TankDetails = () => {
   const { id } = useParams();
   const [tank, setTank] = useState<Tank | null>(null);
@@ -149,11 +161,20 @@ const TankDetails = () => {
           <Row className="mt-3 text-center">
             <Col md={6} className="info-box">
               <span className="info-title">Kraj:</span>
-              <span className="info-value">{tank.country}</span>
+              <span className="info-value">{getTankCountry(tank.country)}</span>
             </Col>
             <Col md={6} className="info-box">
               <span className="info-title">Typ:</span>
               <span className="info-value">{getTankTypeTranslation(tank.tankType)}</span>
+            </Col>
+          </Row>
+
+          <Row className="mt-4">
+            <Col>
+              <h4 className="text-center">Opis:</h4>
+              <p className="text-justify px-3">
+                {tank.description || "Brak opisu dla tego czołgu."}
+              </p>
             </Col>
           </Row>
 
