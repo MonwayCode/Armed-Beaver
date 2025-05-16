@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavScroll from './components/NavSroll';
 import "bootstrap/dist/css/bootstrap.min.css";
+import FunFactSection from './components/FunFactSection';
 import "./styles.css";
 
 const countries = [
@@ -94,10 +95,8 @@ const App: React.FC = () => {
                         ))}
                     </div>
                     </section>
-                <section className="mt-5 text-center p-4 bg-light shadow rounded">
-                    <h2 className="mb-3">Ciekawostka</h2>
-                    <p className="lead">W czasie II wojny światowej radziecki T-34 był uznawany za jeden z najlepszych czołgów dzięki swojej mobilności i pancerzowi.</p>
-                </section>
+                <FunFactSection />
+
             </div>
         </div>
     );
