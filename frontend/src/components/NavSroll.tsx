@@ -43,7 +43,7 @@ function NavScroll() {
             </NavDropdown>
             
             <Nav.Link href="/amunicja">Amunicja</Nav.Link>
-            <Nav.Link href="/porownywarka">Porównywarka</Nav.Link>
+            <Nav.Link href="/compare">Porównywarka</Nav.Link>
 
           </Nav>
           <Form className="d-flex">

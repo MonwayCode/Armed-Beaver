@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Container, Card, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
 
 import "./TankStyle.css";
 import NavScroll from './NavSroll';
@@ -81,6 +82,7 @@ interface ArmorPenetration {
   m1000_60s: number;
 }
 
+
 const getTankTypeTranslation = (type: string) => {
   switch (type.toLowerCase()) {
     case 'heavy':
@@ -115,6 +117,7 @@ const getTankCountry = (type: string) => {
 
 const TankDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [tank, setTank] = useState<Tank | null>(null);
   const [loading, setLoading] = useState(true);
   const [expandedAmmoIndexes, setExpandedAmmoIndexes] = useState<number[]>([]);
@@ -153,6 +156,34 @@ const TankDetails = () => {
               alt={tank.name}
               className="tank-image"
             />
+          </div>
+          <div className="text-center mt-4">
+          <button
+            className="btn btn-warning"
+            onClick={() => {
+              const existing = localStorage.getItem("tankToCompare");
+              let ids: string[] = [];
+
+              if (existing) {
+                try {
+                  ids = JSON.parse(existing);
+                  if (!Array.isArray(ids)) ids = [];
+                } catch {
+                  ids = [];
+                }
+              }
+
+                if (!ids.includes(id!.toString())) {
+                ids.push(id!.toString());
+              }
+
+              localStorage.setItem("tankToCompare", JSON.stringify(ids));
+              navigate("/compare");
+            }}
+          >
+            Dodaj do porównania
+          </button>
+
           </div>
 
           <h1 className="text-center text-warning mt-3">{tank.name}</h1>
